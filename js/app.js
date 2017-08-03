@@ -1,3 +1,28 @@
+function totalBilled(startDate, monthlyRate) {    
+    var payment = monthsWorked(startDate) * parseInt(monthlyRate);
+    console.log("payment - " + payment);
+    return(payment);
+  }
+
+  function monthsWorked(startDate) {  
+
+    var startMon = moment(startDate, "MM/DD/YY");    
+
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("MM"));
+
+    // Difference 
+    var diffMon = moment().diff(moment(startMon), "months");
+    console.log("DIFFERENCE IN MONTHS: " + diffMon);      
+    
+    return diffMon;
+  }
+
+// $(document).ready(function(){
+//   console.log(totalBilled("05/04/16", 450));
+// })
+
+
 $(document).on("ready", function() {
 	// Initialize Firebase
 	var config = {

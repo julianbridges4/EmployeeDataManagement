@@ -13,14 +13,19 @@ $(document).on("ready", function() {
 
 	var database = firebase.database();
 
+	var userName = '';
+	var userRole = '';
+	var userStart = 0;
+	var userRate = 0;
+
 	$('.btn').on('click', function() {
 		event.preventDefault();
 
 		// Capture user input values
-		var userName = $('#employee-name').val().trim();
-		var userRole = $('#role').val().trim();
-		var userStart = $('#start-date').val().trim();
-		var userRate = $('#month-rate').val().trim();
+		userName = $('#employee-name').val().trim();
+		userRole = $('#role').val().trim();
+		userStart = $('#start-date').val().trim();
+		userRate = $('#month-rate').val().trim();
 
 		// Store inputs into firebase database
 		database.ref().push({
@@ -31,6 +36,17 @@ $(document).on("ready", function() {
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
+	});
+
+	database.ref().on("value", function(snapshot) {
+		$('').append(snapshot.val().nameFB);
+		$('').append(snapshot.val().roleFB);
+		$('').append(snapshot.val().startFB);
+		// $('').append(snapshot.val().tempMonthsWorked);
+		$('').append(snapshot.val().startFB);
+		// $('').append(snapshot.val().tempTotalBilled);
+	}, function(errorObject) {
+		console.log("Errors handled:" + errorObject.code);
 	});
 
 });

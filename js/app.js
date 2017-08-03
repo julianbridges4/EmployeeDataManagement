@@ -1,3 +1,4 @@
+$(document).on("ready", function() {
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyADmvtoeIRMfZ0DYvMrk8Fz_MQ2-4gX_aI",
@@ -8,3 +9,5 @@
     messagingSenderId: "256758979445"
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
+});

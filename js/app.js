@@ -38,15 +38,4 @@ $(document).on("ready", function() {
 
 	});
 
-	database.ref().on("value", function(snapshot) {
-		$('').append(snapshot.val().nameFB);
-		$('').append(snapshot.val().roleFB);
-		$('').append(snapshot.val().startFB);
-		// $('').append(snapshot.val().tempMonthsWorked);
-		$('').append(snapshot.val().startFB);
-		// $('').append(snapshot.val().tempTotalBilled);
-	}, function(errorObject) {
-		console.log("Errors handled:" + errorObject.code);
-	});
-
 });

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function totalBilled(startDate, monthlyRate) {    
     var payment = monthsWorked(startDate) * parseInt(monthlyRate);
     console.log("payment - " + payment);
@@ -6,16 +6,12 @@ function totalBilled(startDate, monthlyRate) {
   }
 
   function monthsWorked(startDate) {  
-
-    var startMon = moment(startDate, "MM/DD/YY");    
-
+    var startMon = moment(startDate, "MM/DD/YY");   
     var currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("MM"));
-
     // Difference 
     var diffMon = moment().diff(moment(startMon), "months");
-    console.log("DIFFERENCE IN MONTHS: " + diffMon);      
-    
+    console.log("DIFFERENCE IN MONTHS: " + diffMon);       
     return diffMon;
   }
 

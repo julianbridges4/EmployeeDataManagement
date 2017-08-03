@@ -8,3 +8,22 @@
     messagingSenderId: "256758979445"
   };
   firebase.initializeApp(config);
+
+$('.btn').on('click', function() {
+	event.preventDefault();
+
+	// Capture user input values
+	var userName = $('#employee-name').val().trim();
+	var userRole = $('#role').val().trim();
+	var userStart = $('#start-date').val().trim();
+	var userRate = $('#month-rate').val().trim();
+
+	// Store inputs into firebase database
+	database.ref().push({
+		nameFB: userName,
+		roleFB: userRole,
+		startFB: userStart,
+		rateFB: userRate,
+		dateAdded: firebase.database.ServerValue.TIMESTAMP
+	})
+});
